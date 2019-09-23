@@ -1,0 +1,30 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time as timedelay
+import pyautogui
+import ctypes  
+import win32api
+from pymsgbox import *
+from datetime import *
+i=1
+driver = webdriver.Chrome(r"C:\Users\Netcon-Chennai\Desktop\URL\chromedriver.exe")
+url = ("https://url1.com","https://url2.com")
+#pyautogui.hotkey('alt','space')
+#timedelay.sleep(1)
+#pyautogui.press('x')
+driver.manage().window().maximize()
+timedelay.sleep(1)
+for name in url:
+    fn = datetime.now()
+    filename = fn.strftime("%H_")
+    filename1 = filename + str(i)
+    driver.get(name)
+    timedelay.sleep(1)
+    pyautogui.screenshot(r"D:path\screenshot"+str(filename1)+".png")
+    i=i+1
+    
+    
+alert(text='Screenshot taken', title='ALERT', button='OK')
+
+
+driver.close()
